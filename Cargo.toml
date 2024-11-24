@@ -1,0 +1,56 @@
+[package]
+name = "aurum"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "A highly scalable, performant, and extensible bot framework for Solana"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/yourusername/aurum"
+documentation = "https://docs.rs/aurum"
+readme = "README.md"
+keywords = ["solana", "blockchain", "trading", "bot", "crypto"]
+categories = ["cryptocurrency", "finance"]
+
+[dependencies]
+solana-sdk = "1.17"
+solana-client = "1.17"
+solana-program = "1.17"
+anchor-lang = "0.29"
+anchor-client = "0.29"
+tokio = { version = "1.36", features = ["full"] }
+thiserror = "1.0"
+anyhow = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+metrics = "0.21"
+metrics-exporter-prometheus = "0.12"
+async-trait = "0.1"
+futures = "0.3"
+tokio-stream = "0.1"
+chrono = { version = "0.4", features = ["serde"] }
+dashmap = "5.5"
+uuid = { version = "1.7", features = ["v4", "serde"] }
+config = "0.13"
+dotenv = "0.15"
+ring = "0.17"
+ed25519-dalek = "2.1"
+
+[dev-dependencies]
+tokio-test = "0.4"
+mockall = "0.12"
+criterion = "0.5"
+test-log = "0.2"
+pretty_assertions = "1.4"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.dev]
+opt-level = 0
+debug = true
